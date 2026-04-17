@@ -2,7 +2,6 @@ package com.janes.saenz.puerta.proofonoff.data.utils
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
-import org.junit.Assert.assertTrue
 import org.junit.Test
 
 /**
@@ -21,7 +20,6 @@ class ResourceTest {
         val resource = Resource.Success(data)
 
         // THEN
-        assertTrue(resource is Resource<String>)
         assertEquals(data, resource.data)
     }
 
@@ -48,7 +46,6 @@ class ResourceTest {
         val resource2 = Resource.Loading
 
         // THEN
-        assertTrue(resource1 is Resource<Nothing>)
         assertEquals(resource1, resource2) // Verificación de Singleton
     }
 

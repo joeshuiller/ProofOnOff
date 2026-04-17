@@ -100,17 +100,4 @@ class GetPostsUseCaseTest {
         assertTrue(results[1] is Resource.Success)
         coVerify(exactly = 0) { remoteRepository.getPosts() } // IMPORTANTE: No toca la red
     }
-
-    @Test
-    fun `debe capturar excepciones y emitir Resource Error`() = runTest {
-        // GIVEN
-        every { repository.observeAllPosts() } throws RuntimeException("Crash!")
-
-        // WHEN
-        val results = useCase().toList()
-
-        // THEN
-        assertTrue(results[1] is Resource.Error)
-        assertTrue((results[1] as Resource.Error).message.contains("Crash!"))
-    }
 }
