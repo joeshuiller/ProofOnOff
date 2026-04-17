@@ -199,9 +199,10 @@ Utilizamos **Version Catalogs (`libs.versions.toml`)** para un manejo centraliza
 
 ## 📱 Screenshots
 
-| Lista de Posts | Detalle del Post | Comentarios |
+| Lista de Posts | Detalle del Post | Comentarios | Inicio |
 | :---: | :---: | :---: |
-| ![Lista](https://via.placeholder.com/200x400?text=Lista+Posts) | ![Detalle](https://via.placeholder.com/200x400?text=Detalle+Post) | ![Comentarios](https://via.placeholder.com/200x400?text=Seccion+Comentarios) |
+| ![Lista](https://github.com/joeshuiller/ProofOnOff/blob/master/screenshot/Screenshot_2026-04-17-11-18-29-901_com.janes.saenz.puerta.proofonoff.debug.jpg) | ![Detalle](https://github.com/joeshuiller/ProofOnOff/blob/master/screenshot/Screenshot_2026-04-17-11-18-46-843_com.janes.saenz.puerta.proofonoff.debug.jpg) | ![Comentarios](https://github.com/joeshuiller/ProofOnOff/blob/master/screenshot/Screenshot_2026-04-17-11-18-46-843_com.janes.saenz.puerta.proofonoff.debug.jpg)| ![Inicio](https://github.com/joeshuiller/ProofOnOff/blob/master/screenshot/Screenshot_2026-04-17-11-20-30-037_com.janes.saenz.puerta.proofonoff.debug.jpg) |
+| ![Lista](https://github.com/joeshuiller/ProofOnOff/blob/master/screenshot/Screenshot_2026-04-17-11-18-34-735_com.janes.saenz.puerta.proofonoff.debug.jpg) | ![Lista](https://github.com/joeshuiller/ProofOnOff/blob/master/screenshot/Screenshot_2026-04-17-11-18-40-069_com.janes.saenz.puerta.proofonoff.debug.jpg) | ![Inicio](https://github.com/joeshuiller/ProofOnOff/blob/master/screenshot/Screenshot_2026-04-17-11-20-42-514_com.janes.saenz.puerta.proofonoff.debug.jpg) |
 
 
 ---
