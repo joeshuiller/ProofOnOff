@@ -35,9 +35,9 @@ abstract class BaseRepository {
                 Resource.Error(errorMsg, response.code())
             }
         } catch (e: IOException) {
-            Resource.Error("No hay conexión a internet.")
+            Resource.Error("${e.localizedMessage} No hay conexión a internet.")
         } catch (e: Exception) {
-            Resource.Error(e.localizedMessage ?: "Error desconocido")
+            Resource.Error("${e.localizedMessage}")
         }
     }
 
@@ -53,7 +53,7 @@ abstract class BaseRepository {
             .map { data -> Resource.Success(data) as Resource<T> }
             .onStart { emit(Resource.Loading) }
             .catch { e ->
-                emit(Resource.Error(e.localizedMessage ?: "Error en base de datos"))
+                emit(Resource.Error("${e.localizedMessage}"))
             }
     }
 
@@ -75,9 +75,9 @@ abstract class BaseRepository {
                 emit(Resource.Error(errorMsg, response.code()))
             }
         } catch (e: IOException) {
-            emit(Resource.Error("Sin conexión a internet"))
+            emit(Resource.Error("${e.localizedMessage} Sin conexión a internet"))
         } catch (e: Exception) {
-            emit(Resource.Error(e.localizedMessage ?: "Error desconocido"))
+            emit(Resource.Error("${e.localizedMessage}"))
         }
     }.flowOn(Dispatchers.IO)
 

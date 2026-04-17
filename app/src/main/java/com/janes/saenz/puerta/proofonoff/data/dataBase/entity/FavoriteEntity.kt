@@ -20,8 +20,8 @@ import androidx.room.PrimaryKey
 )
 data class FavoriteEntity(
     @PrimaryKey(autoGenerate = true)
-    val favoriteId: Int = 0,
+    var favoriteId: Int = 0,
     val postId: Int, // Relación con PostEntity
     @ColumnInfo(name = "created_at")
-    val createdAt: Long = System.currentTimeMillis() // Metadata útil
+    var createdAt: Long = System.currentTimeMillis() // Metadata útil
 )

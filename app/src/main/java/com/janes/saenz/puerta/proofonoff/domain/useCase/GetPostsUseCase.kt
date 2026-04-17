@@ -57,7 +57,7 @@ class GetPostsUseCase @Inject constructor(
             emitAll(repository.observeAllPosts())
 
         } catch (e: Exception) {
-            emit(Resource.Error(e.localizedMessage ?: "Error inesperado en dominio"))
+            emit(Resource.Error("${e.localizedMessage}"))
         }
     }.flowOn(Dispatchers.IO)
 }

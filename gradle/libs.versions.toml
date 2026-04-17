@@ -1,70 +1,102 @@
 [versions]
+# -- Build Tools & Language --
 agp = "8.10.1"
 kotlin = "2.0.20"
+ksp = "2.0.20-1.0.25"
+dokka = "1.9.20"
+
+# -- Core Android & UI --
 coreKtx = "1.17.0"
-junit = "4.13.2"
-junitVersion = "1.3.0"
-espressoCore = "3.7.0"
-lifecycleRuntimeKtx = "2.10.0"
+lifecycle = "2.10.0"
 activityCompose = "1.12.3"
 composeBom = "2026.01.01"
-hilt = "2.52" # Revisa la última versión estable
-hiltNavigationCompose = "1.3.0"
-ksp = "2.0.20-1.0.25"  # Debe ser compatible con tu versión de Kotlin
+navigation = "2.9.7"
+splashscreen = "1.0.1"
+
+# -- Dependency Injection & Networking --
+hilt = "2.52"
+hiltNavigation = "1.3.0"
 retrofit = "2.11.0"
 okhttp = "4.12.0"
-coroutines = "1.9.0"
-navigationCompose = "2.9.7"
-coil = "2.6.0"
-room = "2.6.1"
-coreSplashscreen = "1.0.1"
-kotlinxSerialization = "1.6.3"
-timber = "5.0.1"
-dokka = "1.9.20" # Verifica la última versión compatible con tu Kotlin
-[libraries]
-# Logging
-timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 
-kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
-androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "coreSplashscreen" }
-coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
-kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+# -- Persistence & Async --
+room = "2.6.1"
+coroutines = "1.9.0"
+serialization = "1.6.3"
+
+# -- Image Loading & Logging --
+coil = "2.6.0"
+timber = "5.0.1"
+
+# -- Testing --
+junit = "4.13.2"
+mockk = "1.13.10"
+espresso = "3.7.0"
+testRunner = "1.5.2"
+testExt = "1.1.5"
+detekt = "1.23.5"
+
+
+[libraries]
+# -- Core & UI Infrastructure --
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashscreen" }
+
+# -- Compose (via BOM) --
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-ui = { group = "androidx.compose.ui", name = "ui" }
-androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-icons-core = { group = "androidx.compose.material", name = "material-icons-core" }
+androidx-compose-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
+
+# -- Navigation --
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+
+# -- Hilt --
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
-androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
-# Iconos estándar
-androidx-compose-material-icons-core = { group = "androidx.compose.material", name = "material-icons-core" }
-# Iconos extendidos (si el que buscas no aparece en el core)
-androidx-compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
-# Retrofit
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigation" }
+hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
+
+# -- Network Stack --
 retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
-# OkHttp (Para logging y manejo de red)
 okhttp-core = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
-# Room Runtime y KTX (para Coroutines/Flow)
+
+# -- Persistence (Room) --
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
-# Compilador (usado con ksp)
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 
+# -- Async & Serialization --
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
+
+# -- Testing (Unit) --
+test-junit = { group = "junit", name = "junit", version.ref = "junit" }
+test-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+test-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+detekt-formatting = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
+
+# -- Testing (Instrumented) --
+test-android-ext = { group = "androidx.test.ext", name = "junit", version.ref = "testExt" }
+test-android-runner = { group = "androidx.test", name = "runner", version.ref = "testRunner" }
+test-android-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+test-android-compose-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+test-android-compose-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+
+# -- Utils --
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+
 [bundles]
-retrofit = ["retrofit-core", "retrofit-converter-gson", "okhttp-core", "okhttp-logging"]
+# Vacío por solicitud del usuario
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -73,4 +105,4 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 kotlin-dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }

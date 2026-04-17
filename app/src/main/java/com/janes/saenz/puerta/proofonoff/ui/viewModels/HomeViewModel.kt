@@ -1,6 +1,5 @@
 package com.janes.saenz.puerta.proofonoff.ui.viewModels
 
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -40,7 +39,6 @@ class HomeViewModel @Inject constructor(
     fun loadProducts() {
         viewModelScope.launch {
             getPostsUseCase().collect { result ->
-                Log.e("MainViewModel", "loadProduct: $result")
                 _uiState.value = result
                 isSuccess = true
             }
@@ -63,7 +61,7 @@ class HomeViewModel @Inject constructor(
         }
         .stateIn(
             scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5000),
+            started = SharingStarted.Lazily,
             initialValue = Resource.Loading
         )
 
