@@ -1,7 +1,7 @@
 package com.janes.saenz.puerta.proofonoff.data.repository
 
 import com.janes.saenz.puerta.proofonoff.data.utils.Resource
-import com.janes.saenz.puerta.proofonoff.ui.utlis.HttpCodes
+import com.janes.saenz.puerta.proofonoff.ui.utlis.Constants
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
@@ -37,7 +37,7 @@ class BaseRepositoryTest {
     fun `safeApiCall returns Error with parsed message on HTTP failure`() = runTest {
         // Probamos el 401 que configuramos
         val errorResponse = Response.error<String>(
-            HttpCodes.UNAUTHORIZED,
+            Constants.UNAUTHORIZED,
             "Error body".toResponseBody()
         )
 
@@ -45,7 +45,7 @@ class BaseRepositoryTest {
 
         assertTrue(result is Resource.Error)
         assertEquals("Sesión expirada", (result as Resource.Error).message)
-        assertEquals(HttpCodes.UNAUTHORIZED, result.code)
+        assertEquals(Constants.UNAUTHORIZED, result.code)
     }
 
     /**
