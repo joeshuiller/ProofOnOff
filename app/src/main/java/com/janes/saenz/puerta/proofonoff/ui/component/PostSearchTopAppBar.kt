@@ -2,6 +2,7 @@ package com.janes.saenz.puerta.proofonoff.ui.component
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
@@ -65,7 +66,7 @@ fun PostSearchTopAppBar(
                     onQueryChanged("") // Limpiar estado al retroceder
                 }) {
                     Icon(
-                        imageVector = Icons.Default.ArrowBack,
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                         contentDescription = "Cerrar búsqueda",
                         tint = MaterialTheme.colorScheme.onPrimaryContainer
                     )
