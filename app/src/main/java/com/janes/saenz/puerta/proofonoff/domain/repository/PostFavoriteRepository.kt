@@ -1,7 +1,6 @@
 package com.janes.saenz.puerta.proofonoff.domain.repository
 
 import com.janes.saenz.puerta.proofonoff.data.utils.Resource
-import com.janes.saenz.puerta.proofonoff.domain.dtos.Comments
 import com.janes.saenz.puerta.proofonoff.domain.dtos.Favorite
 import com.janes.saenz.puerta.proofonoff.domain.dtos.Posts
 import kotlinx.coroutines.flow.Flow

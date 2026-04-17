@@ -24,7 +24,7 @@ import javax.inject.Inject
 class PostCommentRepositoryImpl @Inject constructor(
     private val remoteData: PostCommentsDataSource,
     private val mapper: CommentDataBaseMapper
-): BaseRepository(), PostCommentRepository {
+) : BaseRepository(), PostCommentRepository {
 
     /**
      * Obtiene y observa los comentarios de una publicación específica.

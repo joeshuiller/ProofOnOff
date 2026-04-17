@@ -6,7 +6,12 @@ import com.janes.saenz.puerta.proofonoff.data.dataBase.source.PostCommentsDataSo
 import com.janes.saenz.puerta.proofonoff.data.mapper.CommentDataBaseMapper
 import com.janes.saenz.puerta.proofonoff.data.utils.Resource
 import com.janes.saenz.puerta.proofonoff.domain.dtos.Comments
-import io.mockk.*
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.unmockkAll
+import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.toList

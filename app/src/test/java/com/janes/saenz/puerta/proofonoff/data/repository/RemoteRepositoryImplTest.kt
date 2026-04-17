@@ -1,11 +1,16 @@
 package com.janes.saenz.puerta.proofonoff.data.repository
 
+import com.janes.saenz.puerta.proofonoff.data.mapper.PostResponseMapper
 import com.janes.saenz.puerta.proofonoff.data.network.dtos.response.PostsResponse
 import com.janes.saenz.puerta.proofonoff.data.network.source.RemoteDataSource
-import com.janes.saenz.puerta.proofonoff.data.mapper.PostResponseMapper
 import com.janes.saenz.puerta.proofonoff.data.utils.Resource
 import com.janes.saenz.puerta.proofonoff.domain.dtos.Posts
-import io.mockk.*
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.unmockkAll
+import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest

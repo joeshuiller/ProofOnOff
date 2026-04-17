@@ -24,6 +24,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.janes.saenz.puerta.proofonoff.ui.utlis.UIConstants
 
 /**
  * CommentForm - Componente de entrada para la creación de comentarios.
@@ -56,7 +57,7 @@ fun CommentForm(
             modifier = Modifier.fillMaxWidth(),
             placeholder = { Text("Escribe un comentario...") },
             enabled = !isSending, // Bloquea la edición durante el envío
-            maxLines = 4,
+            maxLines = UIConstants.MAX_LINES_DESCRIPTION,
             shape = RoundedCornerShape(12.dp)
         )
 

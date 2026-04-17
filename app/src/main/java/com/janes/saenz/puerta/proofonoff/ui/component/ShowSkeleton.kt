@@ -7,12 +7,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.runtime.Composable
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import com.janes.saenz.puerta.proofonoff.ui.utlis.UIConstants
+
 /**
  * Genera una representación visual de carga (Skeleton Screen) para un componente de producto o perfil.
  *
@@ -49,7 +51,7 @@ fun ShowSkeleton() {
         // Placeholder de Título
         Box(
             modifier = Modifier
-                .fillMaxWidth(0.7f)
+                .fillMaxWidth(UIConstants.TARGET_ALPHA_MUTED)
                 .height(24.dp)
                 .clip(RoundedCornerShape(4.dp))
                 .shimmerEffect()
@@ -59,7 +61,7 @@ fun ShowSkeleton() {
         // Placeholder de Precio
         Box(
             modifier = Modifier
-                .fillMaxWidth(0.3f)
+                .fillMaxWidth(UIConstants.SIDE_PANEL_WIDTH_FRACTION)
                 .height(18.dp)
                 .clip(RoundedCornerShape(4.dp))
                 .shimmerEffect()

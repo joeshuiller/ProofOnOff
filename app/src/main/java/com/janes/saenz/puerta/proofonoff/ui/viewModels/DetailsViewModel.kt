@@ -1,8 +1,5 @@
 package com.janes.saenz.puerta.proofonoff.ui.viewModels
 
-
-
-
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.janes.saenz.puerta.proofonoff.data.utils.Resource

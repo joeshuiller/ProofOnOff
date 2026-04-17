@@ -23,5 +23,4 @@ interface ApiUrl {
      */
     @GET("posts")
     suspend fun getPosts(): Response<List<PostsResponse>>
-
 }

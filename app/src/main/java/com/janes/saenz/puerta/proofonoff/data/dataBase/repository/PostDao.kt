@@ -43,12 +43,14 @@ interface PostDao {
      * * Soporta filtrado por ID exacto y/o coincidencia parcial en el título.
      * * Si los parámetros son nulos, se ignoran en la cláusula WHERE.
      */
-    @Query("""
+    @Query(
+        """
         SELECT * FROM posts_table 
         WHERE (:id IS NULL OR id = :id) 
         AND (:title IS NULL OR title LIKE '%' || :title || '%')
         ORDER BY id ASC
-    """)
+    """
+    )
     fun observeFilteredPosts(id: Int?, title: String?): Flow<List<PostEntity?>>
 
     /**

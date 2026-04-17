@@ -8,10 +8,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material3.Icon
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.janes.saenz.puerta.proofonoff.domain.dtos.Comments
+import com.janes.saenz.puerta.proofonoff.ui.utlis.UIConstants
 
 /**
  * CommentItem - Representación visual de un comentario individual.
@@ -37,7 +38,7 @@ fun CommentItem(comment: Comments) {
             .padding(vertical = 4.dp),
         colors = CardDefaults.cardColors(
             // Uso de alfa para suavizar la elevación visual del componente
-            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f)
+            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = UIConstants.AUXILIARY_PANEL_FRACTION)
         )
     ) {
         Column(modifier = Modifier.padding(12.dp)) {

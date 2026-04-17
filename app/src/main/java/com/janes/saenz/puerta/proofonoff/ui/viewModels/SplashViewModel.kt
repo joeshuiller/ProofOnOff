@@ -30,10 +30,14 @@ class SplashViewModel @Inject constructor() : ViewModel() {
     private fun startSplashScreenTimer() {
         viewModelScope.launch {
             // Espera de 2 segundos (2000 milisegundos)
-            delay(2000)
+            delay(SEARCH_DEBOUNCE_DELAY_MS)
 
             // Aquí decides a dónde ir (puedes meter lógica de Login vs Home)
             startDestination = "main_tabs"
         }
+    }
+
+    companion object {
+        private const val SEARCH_DEBOUNCE_DELAY_MS = 2000L
     }
 }

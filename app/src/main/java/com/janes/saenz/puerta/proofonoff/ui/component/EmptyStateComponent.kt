@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.janes.saenz.puerta.proofonoff.ui.utlis.UIConstants
 
 /**
  * EmptyStateComponent - Interfaz de retroalimentación para estados sin datos.
@@ -50,7 +51,7 @@ fun EmptyStateComponent(
             contentDescription = "Búsqueda sin resultados",
             modifier = Modifier.size(80.dp),
             // Tonalidad suavizada para no sobrecargar visualmente al usuario
-            tint = MaterialTheme.colorScheme.primary.copy(alpha = 0.6f)
+            tint = MaterialTheme.colorScheme.primary.copy(alpha = UIConstants.SHIMMER_ALPHA_HIGH)
         )
 
         Spacer(modifier = Modifier.height(16.dp))

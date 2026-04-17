@@ -13,6 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import com.janes.saenz.puerta.proofonoff.ui.utlis.UIConstants
+
 /**
  * Aplica un efecto de brillo animado (shimmer) al fondo de un Composable.
  * * Este modificador es ideal para componentes de carga (Skeletons). Utiliza una
@@ -31,10 +33,10 @@ import androidx.compose.ui.graphics.Color
 fun Modifier.shimmerEffect(): Modifier {
     val transition = rememberInfiniteTransition(label = "shimmer")
     val translateAnim by transition.animateFloat(
-        initialValue = 0f,
-        targetValue = 1000f,
+        initialValue = UIConstants.SHIMMER_START_OFFSET,
+        targetValue = UIConstants.SHIMMER_END_OFFSET,
         animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis = 1200, easing = FastOutSlowInEasing),
+            animation = tween(durationMillis = UIConstants.SHIMMER_DURATION_MS, easing = FastOutSlowInEasing),
             repeatMode = RepeatMode.Restart
         ),
         label = "shimmer_translation"
@@ -42,9 +44,9 @@ fun Modifier.shimmerEffect(): Modifier {
 
     val brush = Brush.linearGradient(
         colors = listOf(
-            Color.LightGray.copy(alpha = 0.6f),
-            Color.LightGray.copy(alpha = 0.2f),
-            Color.LightGray.copy(alpha = 0.6f),
+            Color.LightGray.copy(alpha = UIConstants.SHIMMER_ALPHA_HIGH),
+            Color.LightGray.copy(alpha = UIConstants.SHIMMER_ALPHA_LOW),
+            Color.LightGray.copy(alpha = UIConstants.SHIMMER_ALPHA_HIGH),
         ),
         start = Offset.Zero,
         end = Offset(x = translateAnim, y = translateAnim)

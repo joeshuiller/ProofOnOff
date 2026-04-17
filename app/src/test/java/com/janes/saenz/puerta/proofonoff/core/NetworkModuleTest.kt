@@ -1,6 +1,7 @@
 package com.janes.saenz.puerta.proofonoff.core
 
 import com.janes.saenz.puerta.proofonoff.data.network.api.ApiUrl
+import com.janes.saenz.puerta.proofonoff.ui.utlis.HttpCodes
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.unmockkAll
@@ -42,7 +43,7 @@ class NetworkModuleTest {
         val retrofit = NetworkModule.provideVersionRetrofit(mockOkHttpClient)
 
         assertNotNull(retrofit)
-        assertEquals(NetworkModule.baseUrl, retrofit.baseUrl().toString())
+        assertEquals(HttpCodes.BASE_URL, retrofit.baseUrl().toString())
         assertEquals(mockOkHttpClient, retrofit.callFactory())
     }
 
@@ -66,6 +67,6 @@ class NetworkModuleTest {
     @Test
     fun `baseUrl constant should match BuildConfig URL`() {
         // Este test asegura que no se haya hardcodeado accidentalmente un string
-        assertEquals(com.janes.saenz.puerta.proofonoff.BuildConfig.URL_API, NetworkModule.baseUrl)
+        assertEquals(com.janes.saenz.puerta.proofonoff.BuildConfig.URL_API, HttpCodes.BASE_URL)
     }
 }

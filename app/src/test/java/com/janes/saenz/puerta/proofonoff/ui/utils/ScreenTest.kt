@@ -1,5 +1,6 @@
-package com.janes.saenz.puerta.proofonoff.ui.utlis
+package com.janes.saenz.puerta.proofonoff.ui.utils
 
+import com.janes.saenz.puerta.proofonoff.ui.utlis.Screen
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

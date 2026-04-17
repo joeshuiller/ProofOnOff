@@ -23,7 +23,7 @@ import javax.inject.Inject
 class PostRepositoryImpl @Inject constructor(
     private val remoteData: PostDataSource,
     private val mapper: PostDataBaseMapper
-): BaseRepository(), PostRepository {
+) : BaseRepository(), PostRepository {
 
     /**
      * Limpia la caché actual e inserta una nueva lista de publicaciones.
@@ -40,7 +40,7 @@ class PostRepositoryImpl @Inject constructor(
      * Observa el flujo de todas las publicaciones almacenadas.
      * Realiza un mapeo reactivo de Entity a Domain y envuelve el resultado en [Resource].
      */
-    override fun observeAllPosts(): Flow<Resource<List<Posts>>>{
+    override fun observeAllPosts(): Flow<Resource<List<Posts>>> {
         return remoteData.observeAllPosts()
             .map { entities -> mapper.fromEntityListToDomain(entities) }
             .asResource()
@@ -72,4 +72,3 @@ class PostRepositoryImpl @Inject constructor(
             .flowOn(Dispatchers.IO)
     }
 }
-

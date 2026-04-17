@@ -5,7 +5,11 @@ import com.janes.saenz.puerta.proofonoff.domain.dtos.Posts
 import com.janes.saenz.puerta.proofonoff.domain.repository.NetworkRepository
 import com.janes.saenz.puerta.proofonoff.domain.repository.PostRepository
 import com.janes.saenz.puerta.proofonoff.domain.repository.RemoteRepository
-import io.mockk.*
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.unmockkAll
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
@@ -46,7 +50,7 @@ class GetPostsUseCaseTest {
         // 2. Mock de caché vacía al inicio
         every { repository.observeAllPosts() } returnsMany listOf(
             flowOf(Resource.Success(emptyList<Posts>())), // Primera llamada (check isCacheEmpty)
-            flowOf(Resource.Success(mockPosts))           // Segunda llamada (emitAll)
+            flowOf(Resource.Success(mockPosts)) // Segunda llamada (emitAll)
         )
 
         // 3. Mock de descarga exitosa

@@ -5,7 +5,12 @@ import com.janes.saenz.puerta.proofonoff.data.dataBase.source.PostDataSource
 import com.janes.saenz.puerta.proofonoff.data.mapper.PostDataBaseMapper
 import com.janes.saenz.puerta.proofonoff.data.utils.Resource
 import com.janes.saenz.puerta.proofonoff.domain.dtos.Posts
-import io.mockk.*
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.unmockkAll
+import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.toList

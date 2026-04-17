@@ -51,7 +51,7 @@ class HomeViewModel @Inject constructor(
     // Transformamos el texto de búsqueda en el flujo de resultados
     @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
     val postsState: StateFlow<Resource<List<Posts>>> = _searchQuery
-        .debounce(300) // Evita buscar con cada tecla, espera un respiro
+        .debounce(SEARCH_DEBOUNCE_DELAY_MS) // Evita buscar con cada tecla, espera un respiro
         .distinctUntilChanged() // Solo busca si el texto cambió realmente
         .flatMapLatest { query ->
             // Si el query es un número, buscamos por ID, si no por Título
@@ -67,5 +67,8 @@ class HomeViewModel @Inject constructor(
 
     fun onSearchQueryChanged(newQuery: String) {
         _searchQuery.value = newQuery
+    }
+    companion object {
+        private const val SEARCH_DEBOUNCE_DELAY_MS = 300L
     }
 }

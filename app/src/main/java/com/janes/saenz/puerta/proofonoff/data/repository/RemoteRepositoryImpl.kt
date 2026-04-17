@@ -5,7 +5,6 @@ import com.janes.saenz.puerta.proofonoff.data.network.source.RemoteDataSource
 import com.janes.saenz.puerta.proofonoff.data.utils.Resource
 import com.janes.saenz.puerta.proofonoff.domain.dtos.Posts
 import com.janes.saenz.puerta.proofonoff.domain.repository.RemoteRepository
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

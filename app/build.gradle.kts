@@ -140,6 +140,7 @@ dependencies {
 
     //plugins
     detektPlugins(libs.detekt.formatting)
+    testImplementation(kotlin("test"))
 
 }
 tasks.withType<JacocoReport> {

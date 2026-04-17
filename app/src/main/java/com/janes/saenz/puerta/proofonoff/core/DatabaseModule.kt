@@ -3,9 +3,9 @@ package com.janes.saenz.puerta.proofonoff.core
 import android.content.Context
 import androidx.room.Room
 import com.janes.saenz.puerta.proofonoff.data.dataBase.db.DbData
-import com.janes.saenz.puerta.proofonoff.data.dataBase.repository.PostFavoriteDao
 import com.janes.saenz.puerta.proofonoff.data.dataBase.repository.PostCommentsDao
 import com.janes.saenz.puerta.proofonoff.data.dataBase.repository.PostDao
+import com.janes.saenz.puerta.proofonoff.data.dataBase.repository.PostFavoriteDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -60,5 +60,4 @@ object DatabaseModule {
      */
     @Provides
     fun provideFavoriteDao(db: DbData): PostFavoriteDao = db.favoriteDao()
-
 }

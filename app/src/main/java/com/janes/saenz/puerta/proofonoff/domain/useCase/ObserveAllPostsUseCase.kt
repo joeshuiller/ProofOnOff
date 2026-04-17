@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 /**
- * ObserveAllPostsUseCase - Interactor para la observación reactiva del feed de publicaciones.
+ * ObserveAllPostsUseCase - Interaction para la observation reactive del feed de publicaciones.
  *
  * Este componente es la pieza central para el listado principal de la aplicación.
  * Permite una sincronización bidireccional implícita: cuando la base de datos se
@@ -21,7 +21,7 @@ class ObserveAllPostsUseCase @Inject constructor(
     /**
      * Inicia la suscripción al flujo de todas las publicaciones disponibles.
      * * El flujo resultante debe ser recolectado preferiblemente en el ViewModel
-     * utilizando operadores que gestionen el ciclo de vida (ej. [stateIn]).
+     * utilizando operadores que gestionen el ciclo de vida (ej. []).
      *
      * @return Un [Flow] observable que emite estados [Resource] con la colección de [Posts].
      */

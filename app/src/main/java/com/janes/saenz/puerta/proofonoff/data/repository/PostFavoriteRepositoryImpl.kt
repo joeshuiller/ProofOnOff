@@ -4,7 +4,6 @@ import com.janes.saenz.puerta.proofonoff.data.dataBase.source.PostFavoriteDataSo
 import com.janes.saenz.puerta.proofonoff.data.mapper.FavoriteDataBaseMapper
 import com.janes.saenz.puerta.proofonoff.data.mapper.PostDataBaseMapper
 import com.janes.saenz.puerta.proofonoff.data.utils.Resource
-import com.janes.saenz.puerta.proofonoff.domain.dtos.Comments
 import com.janes.saenz.puerta.proofonoff.domain.dtos.Favorite
 import com.janes.saenz.puerta.proofonoff.domain.dtos.Posts
 import com.janes.saenz.puerta.proofonoff.domain.repository.PostFavoriteRepository
@@ -29,7 +28,7 @@ class PostFavoriteRepositoryImpl @Inject constructor(
     private val remoteData: PostFavoriteDataSource,
     private val mapper: FavoriteDataBaseMapper,
     private val mapperPost: PostDataBaseMapper
-): BaseRepository(), PostFavoriteRepository  {
+) : BaseRepository(), PostFavoriteRepository {
 
     /**
      * Recupera publicaciones marcadas como favoritas de forma reactiva.
@@ -68,7 +67,7 @@ class PostFavoriteRepositoryImpl @Inject constructor(
 
     /**
      * Verifica la existencia de un favorito.
-     * TODO: Implementar usando un flujo que emita true/false basado en la DB.
+     * Implementar usando un flujo que emita true/false basado en la DB.
      */
     override fun isFavorite(postId: Int): Flow<Resource<Boolean>> {
         TODO("Not yet implemented")

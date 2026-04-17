@@ -9,6 +9,7 @@ import com.janes.saenz.puerta.proofonoff.data.utils.Resource
 import com.janes.saenz.puerta.proofonoff.domain.dtos.Comments
 import com.janes.saenz.puerta.proofonoff.domain.useCase.AddCommentUseCase
 import com.janes.saenz.puerta.proofonoff.domain.useCase.GetCommentsUseCase
+import com.janes.saenz.puerta.proofonoff.ui.utlis.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -75,7 +76,7 @@ class CommentsViewModel @Inject constructor(
                 addCommentUseCase(comment)
 
                 // Delay controlado para UX: evita que el loader parpadee demasiado rápido
-                delay(2000L)
+                delay(Constants.TIMEOUT_MS)
 
                 // Re-sincronización del estado local
                 getComments(comment.postId)

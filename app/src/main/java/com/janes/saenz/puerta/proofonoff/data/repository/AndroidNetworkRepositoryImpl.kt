@@ -73,9 +73,7 @@ class AndroidNetworkRepositoryImpl @Inject constructor(
     /**
      * Lógica interna para validar si la red activa tiene salida real a internet.
      */
-    private fun isCurrentlyConnected(): Boolean {
-        val network = connectivityManager.activeNetwork ?: return false
-        val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
-        return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-    }
+    private fun isCurrentlyConnected(): Boolean =
+        connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+            ?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
 }

@@ -1,8 +1,7 @@
 package com.janes.saenz.puerta.proofonoff.data.repository
 
-import retrofit2.Response
-import java.io.IOException
 import com.janes.saenz.puerta.proofonoff.data.utils.Resource
+import com.janes.saenz.puerta.proofonoff.ui.utlis.Constants
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -10,6 +9,8 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
+import retrofit2.Response
+import java.io.IOException
 
 /**
  * BaseRepository - Proveedor de utilidades para la gestión segura de datos.
@@ -36,8 +37,6 @@ abstract class BaseRepository {
             }
         } catch (e: IOException) {
             Resource.Error("${e.localizedMessage} No hay conexión a internet.")
-        } catch (e: Exception) {
-            Resource.Error("${e.localizedMessage}")
         }
     }
 
@@ -76,8 +75,6 @@ abstract class BaseRepository {
             }
         } catch (e: IOException) {
             emit(Resource.Error("${e.localizedMessage} Sin conexión a internet"))
-        } catch (e: Exception) {
-            emit(Resource.Error("${e.localizedMessage}"))
         }
     }.flowOn(Dispatchers.IO)
 
@@ -86,10 +83,10 @@ abstract class BaseRepository {
      */
     private fun parseError(code: Int): String {
         return when (code) {
-            401 -> "Sesión expirada"
-            404 -> "Recurso no encontrado"
-            500 -> "Error en el servidor"
-            else -> "Error inesperado (Código: $code)"
+            Constants.UNAUTHORIZED -> "Sesión expirada"
+            Constants.NOT_FOUND -> "Recurso no encontrado"
+            Constants.SERVER_ERROR -> "Error en el servidor"
+            else -> "Ha ocurrido un error inesperado $code"
         }
     }
 }

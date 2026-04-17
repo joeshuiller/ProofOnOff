@@ -1,6 +1,5 @@
 package com.janes.saenz.puerta.proofonoff.domain.dtos
 
-
 data class Posts(
     val userId: Int,
     val id: Int,

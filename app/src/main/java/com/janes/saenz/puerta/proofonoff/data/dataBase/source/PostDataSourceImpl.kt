@@ -3,7 +3,6 @@ package com.janes.saenz.puerta.proofonoff.data.dataBase.source
 import com.janes.saenz.puerta.proofonoff.data.dataBase.entity.PostEntity
 import com.janes.saenz.puerta.proofonoff.data.dataBase.repository.PostDao
 import kotlinx.coroutines.flow.Flow
-
 import javax.inject.Inject
 
 /**

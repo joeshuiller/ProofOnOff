@@ -14,7 +14,8 @@ import com.janes.saenz.puerta.proofonoff.ui.navigation.RouteNavigation
  * * ### Responsabilidades:
  * 1. **Gestión de Estado:** Crea y preserva el [navController] usando [rememberNavController].
  * 2. **Delegación de Rutas:** Delega la definición de los destinos a [RouteNavigation].
- * 3. **Adaptabilidad:** Recibe un [modifier] para respetar las restricciones de diseño (como el padding de las barras de sistema).
+ * 3. **Adaptabilidad:** Recibe un [modifier] para respetar las restricciones de
+ * diseño (como el padding de las barras de sistema).
  *
  * @author Janes Saenz Puerta
  * @param modifier Modificador para ajustar el diseño, típicamente proveniente de un Scaffold.

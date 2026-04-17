@@ -1,13 +1,12 @@
 package com.janes.saenz.puerta.proofonoff.core
 
-import com.janes.saenz.puerta.proofonoff.BuildConfig
 import com.janes.saenz.puerta.proofonoff.data.network.api.ApiUrl
+import com.janes.saenz.puerta.proofonoff.ui.utlis.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -23,11 +22,6 @@ import javax.inject.Singleton
 object NetworkModule {
 
     /**
-     * URL base del servidor, definida en las variables de entorno de [BuildConfig].
-     */
-    const val baseUrl = BuildConfig.URL_API
-
-    /**
      * Configura y provee el motor de transporte [OkHttpClient].
      * * Define políticas globales de espera para mitigar problemas de latencia.
      * * @return Instancia única de cliente HTTP con 30s de timeout.
@@ -36,8 +30,8 @@ object NetworkModule {
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
-            .connectTimeout(30, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
+            .connectTimeout(Constants.CONNECT_TIMEOUT_S, TimeUnit.SECONDS)
+            .readTimeout(Constants.READ_TIMEOUT_S, TimeUnit.SECONDS)
             .build()
     }
 
@@ -51,7 +45,7 @@ object NetworkModule {
     @Singleton
     fun provideVersionRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(baseUrl)
+            .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()

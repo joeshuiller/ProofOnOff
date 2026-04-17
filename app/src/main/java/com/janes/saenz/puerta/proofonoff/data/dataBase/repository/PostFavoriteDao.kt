@@ -6,7 +6,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
 import com.janes.saenz.puerta.proofonoff.data.dataBase.entity.FavoriteEntity
-import com.janes.saenz.puerta.proofonoff.data.dataBase.entity.relations.PostWithComments
 import com.janes.saenz.puerta.proofonoff.data.dataBase.entity.relations.PostWithFavorite
 import kotlinx.coroutines.flow.Flow
 

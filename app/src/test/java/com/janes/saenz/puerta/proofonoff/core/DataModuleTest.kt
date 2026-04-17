@@ -1,9 +1,21 @@
 package com.janes.saenz.puerta.proofonoff.core
 
-import com.janes.saenz.puerta.proofonoff.data.dataBase.source.*
-import com.janes.saenz.puerta.proofonoff.data.network.source.*
-import com.janes.saenz.puerta.proofonoff.data.repository.*
-import com.janes.saenz.puerta.proofonoff.domain.repository.*
+import com.janes.saenz.puerta.proofonoff.data.dataBase.source.PostCommentsDataSource
+import com.janes.saenz.puerta.proofonoff.data.dataBase.source.PostCommentsDataSourceImpl
+import com.janes.saenz.puerta.proofonoff.data.dataBase.source.PostDataSource
+import com.janes.saenz.puerta.proofonoff.data.dataBase.source.PostDataSourceImpl
+import com.janes.saenz.puerta.proofonoff.data.dataBase.source.PostFavoriteDataSource
+import com.janes.saenz.puerta.proofonoff.data.dataBase.source.PostFavoriteDataSourceImpl
+import com.janes.saenz.puerta.proofonoff.data.network.source.RemoteDataSource
+import com.janes.saenz.puerta.proofonoff.data.network.source.RemoteDataSourceImpl
+import com.janes.saenz.puerta.proofonoff.data.repository.AndroidNetworkRepositoryImpl
+import com.janes.saenz.puerta.proofonoff.data.repository.PostCommentRepositoryImpl
+import com.janes.saenz.puerta.proofonoff.data.repository.PostRepositoryImpl
+import com.janes.saenz.puerta.proofonoff.data.repository.RemoteRepositoryImpl
+import com.janes.saenz.puerta.proofonoff.domain.repository.NetworkRepository
+import com.janes.saenz.puerta.proofonoff.domain.repository.PostCommentRepository
+import com.janes.saenz.puerta.proofonoff.domain.repository.PostRepository
+import com.janes.saenz.puerta.proofonoff.domain.repository.RemoteRepository
 import io.mockk.mockk
 import org.junit.Assert.assertNotNull
 import org.junit.Test

@@ -6,9 +6,11 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import com.janes.saenz.puerta.proofonoff.domain.models.NetworkStatus
-import io.mockk.*
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.mockkStatic
+import io.mockk.unmockkAll
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -34,9 +36,9 @@ class AndroidNetworkRepositoryImplTest {
         val mockBuilder = mockk<NetworkRequest.Builder>(relaxed = true)
 
         // Interceptamos el constructor y devolvemos el mockBuilder
-        //every { NetworkRequest.Builder() } returns mockBuilder
+        // every { NetworkRequest.Builder() } returns mockBuilder
         every { mockBuilder.addCapability(any()) } returns mockBuilder
-        //every { mockBuilder.build() } returns mockk(relaxed = true)
+        // every { mockBuilder.build() } returns mockk(relaxed = true)
 
         // 2. Mockear el servicio del sistema
         every { context.getSystemService(Context.CONNECTIVITY_SERVICE) } returns connectivityManager
@@ -91,6 +93,4 @@ class AndroidNetworkRepositoryImplTest {
         // THEN
         assertEquals(NetworkStatus.Available, status)
     }
-
-
 }

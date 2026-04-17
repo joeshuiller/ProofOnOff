@@ -5,9 +5,9 @@ import androidx.room.RoomDatabase
 import com.janes.saenz.puerta.proofonoff.data.dataBase.entity.CommentEntity
 import com.janes.saenz.puerta.proofonoff.data.dataBase.entity.FavoriteEntity
 import com.janes.saenz.puerta.proofonoff.data.dataBase.entity.PostEntity
-import com.janes.saenz.puerta.proofonoff.data.dataBase.repository.PostFavoriteDao
 import com.janes.saenz.puerta.proofonoff.data.dataBase.repository.PostCommentsDao
 import com.janes.saenz.puerta.proofonoff.data.dataBase.repository.PostDao
+import com.janes.saenz.puerta.proofonoff.data.dataBase.repository.PostFavoriteDao
 /**
  * DbData - Definición central y configurador del motor de persistencia Room.
  * * Esta clase orquesta el esquema de la base de datos local y provee los DAOs

@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import java.io.IOException
 import javax.inject.Inject
 
 class GetPostsUseCase @Inject constructor(
@@ -31,7 +32,7 @@ class GetPostsUseCase @Inject constructor(
         try {
             // 1. Snapshot instantáneo de la base de datos local
             val localDataResource = repository.observeAllPosts().first()
-            val isCacheEmpty = (localDataResource as? Resource.Success)?.data?.isEmpty() ?: true
+            val isCacheEmpty = (localDataResource as? Resource.Success)?.data?.isEmpty() != false
 
             // 2. Lógica de Sincronización (Solo si hay internet)
             if (networkRepository.hasInternetConnection()) {
@@ -55,9 +56,8 @@ class GetPostsUseCase @Inject constructor(
             // 4. Fuente de Verdad Única (SSOT)
             // Tanto si hubo red como si no (y hay datos), emitimos el flujo de la DB
             emitAll(repository.observeAllPosts())
-
-        } catch (e: Exception) {
-            emit(Resource.Error("${e.localizedMessage}"))
+        } catch (e: IOException) {
+            emit(Resource.Error("Error de conexión: ${e.localizedMessage}"))
         }
     }.flowOn(Dispatchers.IO)
 }

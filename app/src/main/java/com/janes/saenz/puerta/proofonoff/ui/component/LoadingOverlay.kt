@@ -15,6 +15,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.janes.saenz.puerta.proofonoff.ui.utlis.UIConstants
+
 /**
  * Un componente de superposición (Overlay) que bloquea la interfaz de usuario y muestra un indicador de carga.
  *
@@ -37,7 +39,7 @@ fun LoadingOverlay(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Black.copy(alpha = 0.4f)) // Oscurece el fondo
+            .background(Color.Black.copy(alpha = UIConstants.SMALL_PANEL_WIDTH_FRACTION)) // Oscurece el fondo
             .clickable(enabled = false) {}, // Bloquea clicks
         contentAlignment = Alignment.Center
     ) {

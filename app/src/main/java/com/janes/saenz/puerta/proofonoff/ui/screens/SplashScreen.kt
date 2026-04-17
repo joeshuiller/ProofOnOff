@@ -14,11 +14,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.RocketLaunch
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
@@ -35,6 +34,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.janes.saenz.puerta.proofonoff.R
+import com.janes.saenz.puerta.proofonoff.ui.utlis.UIConstants
 import com.janes.saenz.puerta.proofonoff.ui.viewModels.SplashViewModel
 import kotlin.let
 
@@ -59,8 +59,6 @@ fun SplashScreen(
 ) {
     // Control de la animación de escala para el icono central
     val escala = remember { Animatable(0f) }
-    // Estado para controlar la visibilidad del popup de error
-    var showPopup by remember { mutableStateOf(true) }
     val context = LocalContext.current
     val window = (context as? Activity)?.window
     // Efecto lanzado al iniciar la composición de la pantalla
@@ -76,8 +74,8 @@ fun SplashScreen(
 
         // Ejecución de la animación de escala (duración: 800ms)
         escala.animateTo(
-            targetValue = 0.7f,
-            animationSpec = tween(durationMillis = 800)
+            targetValue = UIConstants.TARGET_ALPHA_MUTED,
+            animationSpec = tween(durationMillis = UIConstants.ANIMATION_DURATION_LONG_MS)
         )
 
         /**
